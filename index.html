@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DoubleShot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="biome-font.css" />
+  <link rel="icon" href="img/favvicon.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans p-4">
+
+  <!-- Title -->
+  <div class="text-center mb-10 mt-8">
+    <img src="img/logo.png" alt="DOUBLE SHOT Logo" class="mx-auto h-8">
+  </div>
+
+  <!-- Player Input -->
+  <div class="mb-8">
+    <label class="block mb-1 text-m text-gray-300 biomeFont">Players</label>
+    <input id="playerInput" type="text" value="" placeholder="Enter player names (comma separated)" class="w-full p-2 bg-gray-800 rounded" />
+  </div>
+
+  <!-- New Match Button -->
+  <div class="text-center mb-6">
+    <button id="newMatchBtn" class="bg-green-500 text-black py-3 px-10 rounded-full biomeFont-bold">
+      NEW MATCH
+    </button>
+  </div>
+
+  <!-- Match Setup -->
+  <div id="matchSetup" class="flex justify-center mb-6 hidden">
+    <div id="matchWrapper" class="bg-gray-800 rounded pt-4 pb-4 w-full">
+      
+      <div id="currentMatch" class="text-center hidden m-2"><h1 id="nowPlaying" class="text-2xl biomeFont">Now Playing !!!</h1></div>
+      <div id="playerSelect" class="text-center hidden m-2"><h1 id="waiting" class="text-xl biomeFont">Player Selection </h1></div>
+
+      <!-- Timer Display -->
+      <div id="timerDisplay" class="text-center text-lg text-slate-400 mb-4 biomeFont hidden">00:00</div>
+
+      <div class="flex justify-center gap-3 m-4">
+        <!-- Team A -->
+        <div id="teamAwrapper" class="bg-gray-800 p-4 rounded border border-gray-500">
+          <div>
+            <select id="teamA1" class="bg-gray-700 text-white text-center p-2 rounded screenToWidth mb-2 biomeFont"></select>
+            <div id="andTeal" class="text-center text-lg">&</div>
+              <select id="teamA2" class="bg-gray-700 text-white text-center p-2 rounded screenToWidth mt-2 biomeFont"></select>
+          </div>
+          <button id="teamAWinBtn" class="mt-4 screenToWidth bg-teal-500 text-black py-3 rounded hidden biomeFont-bold">Team A Win</button>
+        </div>
+        <!-- Team B -->
+        <div id="teamBwrapper" class="bg-gray-800 p-4 rounded border border-gray-500">
+          <div>
+            <select id="teamB1" class="bg-gray-700 text-white text-center p-2 rounded screenToWidth mb-2 biomeFont"></select>
+            <div id="andPurple" class="text-center text-lg">&</div>
+              <select id="teamB2" class="bg-gray-700 text-white text-center p-2 rounded screenToWidth mt-2 biomeFont"></select>
+          </div>
+          <button id="teamBWinBtn" class="mt-4 screenToWidth bg-purple-400 text-black py-3 rounded hidden biomeFont-bold">Team B Win</button>
+        </div>
+      </div>
+      <div class="text-center mt-4 mb-2">
+        <button id="confirmMatchBtn" class="bg-pink-500 text-black py-2 px-6 rounded-full biomeFont-bold">
+          Confirm ?
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="mt-8 mb-6">
+    <h2 class="text-green-400 text-xl mb-2 biomeFont">Scoreboard</h2>
+    <table class="w-full text-center table-fixed border-collapse border border-gray-700">
+      <thead class="bg-gray-800">
+        <tr>
+          <th class="border border-gray-700 py-2 biomeFont">Player</th>
+          <th class="border border-gray-700 py-2 biomeFont">Win</th>
+          <th class="border border-gray-700 py-2 biomeFont">Loss</th>
+          <th class="border border-gray-700 py-2 biomeFont">%</th>
+        </tr>
+      </thead>
+      <tbody id="scoreTable"></tbody>
+    </table>
+  </div>
+
+  <!-- Match History -->
+  <div class="mb-20">
+    <h2 class="text-pink-400 text-xl mb-2 biomeFont">Match History</h2>
+    <table class="w-full text-center table-fixed border-collapse border border-gray-700">
+      <thead class="bg-gray-800">
+        <tr>
+          <th class="border border-gray-700 py-2 biomeFont">⧗</th>
+          <th class="border border-gray-700 py-2 biomeFont">Team A</th>
+          <th class="border border-gray-700 py-2 biomeFont">Team B</th>
+          <th class="border border-gray-700 py-2 biomeFont">Winner</th>
+        </tr>
+      </thead>
+      <tbody id="historyTable"></tbody>
+    </table>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
